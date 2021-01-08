@@ -1,0 +1,36 @@
+body {
+    background-color: #F6E8EA;
+}
+header {
+    text-align: center;
+    background-color: #312F2F;
+    color: #84DCCF;
+    border-radius: 60%;
+}
+form .collection{
+    width: 90px;
+}
+td , table{
+    border: 3px solid #EF626C;
+    border-collapse: collapse;
+}
+td {
+    width: 140px;
+    text-align: center;
+}
+#table-header {
+    background-color: #84DCCF;
+}
+footer {
+    text-align: right;
+    margin: 10px;
+}
+
+/*
+Pallette 
+teal- 84DCCF
+gray- 312F2F
+black- 22181C
+red- EF626C
+white- F6E8EA
+*/
