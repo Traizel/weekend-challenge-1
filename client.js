@@ -14,6 +14,7 @@ function onReady() {
                 <td>${id}</td>
                 <td>${title}</td>
                 <td>${anualSalary}</td>
+                <td><button class="delete-employee">Delete</button></td>
             </tr>
         `);
         $('.collection').val('');
@@ -26,5 +27,8 @@ function onReady() {
         if (totalMonthlyCosts > 20000) {
             $('footer h2').css('background-color', '#EF626C');
         }
+    });
+    $('#employee-table').on('click', '.delete-employee', function() {
+        $(this).parent().parent().remove();
     });
 }
