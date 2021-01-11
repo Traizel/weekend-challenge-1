@@ -7,13 +7,20 @@ function onReady() {
         let id = $('#id').val();
         let title = $('#title').val();
         let anualSalary = $('#anual-salary').val();
+        if (firstName === '' || lastName === '' || title === '') {
+            alert('You must provide all inputs!');
+            return 0;
+        } else if (id <= 0 || anualSalary <= 0) {
+            alert('You must provide numbers greater than 0!')
+            return 0;
+        }
         $('#employee-table').append(`
             <tr>
                 <td>${firstName}</td>
                 <td>${lastName}</td>
                 <td>${id}</td>
                 <td>${title}</td>
-                <td>${anualSalary}</td>
+                <td class="salary">${anualSalary}</td>
                 <td><button class="delete-employee">Delete</button></td>
             </tr>
         `);
@@ -25,10 +32,19 @@ function onReady() {
         $('#monthly-costs').text(totalMonthlyCosts);
 
         if (totalMonthlyCosts > 20000) {
-            $('footer h2').css('background-color', '#EF626C');
+            $('footer h2').addClass('over-budget');
         }
     });
     $('#employee-table').on('click', '.delete-employee', function() {
+        let removeSalary = $(this).parent().siblings('.salary').text();
+        removeSalary = Number(removeSalary);
+        let totalMonthlyCosts = $('#monthly-costs').text();
+        totalMonthlyCosts = Number(totalMonthlyCosts);
+        totalMonthlyCosts -= removeSalary;
+        $('#monthly-costs').text(totalMonthlyCosts);
         $(this).parent().parent().remove();
+        if (totalMonthlyCosts < 20000) {
+            $('footer h2').removeClass('over-budget');
+        }
     });
 }
