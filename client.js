@@ -14,7 +14,7 @@ function onReady() {
             alert('You must provide numbers greater than 0!')
             return 0;
         }
-        $('#employee-table').append(`
+        $('#employee-table tbody').append(`
             <tr>
                 <td>${firstName}</td>
                 <td>${lastName}</td>
@@ -28,8 +28,8 @@ function onReady() {
         anualSalary = Number(anualSalary);
         let totalMonthlyCosts = $('#monthly-costs').text();
         totalMonthlyCosts = Number(totalMonthlyCosts);
-        totalMonthlyCosts += anualSalary;
-        $('#monthly-costs').text(totalMonthlyCosts);
+        totalMonthlyCosts += (anualSalary / 12);
+        $('#monthly-costs').text(totalMonthlyCosts.toFixed(2));
 
         if (totalMonthlyCosts > 20000) {
             $('footer h2').addClass('over-budget');
@@ -40,8 +40,8 @@ function onReady() {
         removeSalary = Number(removeSalary);
         let totalMonthlyCosts = $('#monthly-costs').text();
         totalMonthlyCosts = Number(totalMonthlyCosts);
-        totalMonthlyCosts -= removeSalary;
-        $('#monthly-costs').text(totalMonthlyCosts);
+        totalMonthlyCosts -= (removeSalary / 12);
+        $('#monthly-costs').text(totalMonthlyCosts.toFixed(2));
         $(this).parent().parent().remove();
         if (totalMonthlyCosts < 20000) {
             $('footer h2').removeClass('over-budget');
