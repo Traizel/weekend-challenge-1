@@ -1,6 +1,9 @@
 body {
     background-color: #F6E8EA;
 }
+.black-text {
+    color: #22181C;
+}
 header {
     text-align: center;
     background-color: #312F2F;
@@ -11,7 +14,7 @@ form .collection{
     width: 90px;
 }
 td , table{
-    border: 3px solid #EF626C;
+    border: 3px solid #312F2F;
     border-collapse: collapse;
 }
 td {
@@ -22,8 +25,8 @@ td {
     background-color: #84DCCF;
 }
 footer {
-    text-align: right;
-    margin: 10px;
+    margin-right: 10px;
+    width: 260px;
 }
 
 /*
